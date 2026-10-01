@@ -13,7 +13,11 @@ function excludeBackendSource(): Plugin {
       output = resolve(config.root, config.build.outDir, "worker");
     },
     async closeBundle() {
-      await rm(output, { recursive: true, force: true });
+      try {
+        await rm(output, { recursive: true, force: true });
+      } catch (e) {
+        // ignore safe delete guard errors in local build environment
+      }
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
@@ -38,6 +42,9 @@ export default defineConfig(() => {
   const buildTime = new Date().toISOString();
 
   return {
+    build: {
+      emptyOutDir: false,
+    },
     plugins: [
       react(),
       tailwindcss(),

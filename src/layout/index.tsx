@@ -153,43 +153,37 @@ export function AppLayout() {
           </Tabs.Content>
         </AnimatedSegmentedTabs>
         <footer className="app-footer">
-          © {new Date().getFullYear()} IP ·{" "}
-          <UnderlineHover asChild>
-            <a
-              href="https://huzhihui.com/blog/one-ip-guide"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t("使用文档")}
-            </a>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <Link to="/docs/api">API</Link>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <Link to="/terms">{t("使用条款")}</Link>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <Link to="/privacy">{t("隐私政策")}</Link>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <a
-              href="https://github.com/zhihui-hu/one-ip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 align-middle"
-            >
-              GitHub
-            </a>
-          </UnderlineHover>{" "}
-          ·{" "}
-          <UnderlineHover asChild>
-            <a href="mailto:ip@huzhihui.com">{t("联系作者")}</a>
-          </UnderlineHover>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-8 border-t border-border/80 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-foreground">FreeSSL IP</span>
+              <span>·</span>
+              <span>© {new Date().getFullYear()} 保留所有权利</span>
+            </div>
+            <div className="flex items-center gap-5 font-medium">
+              <UnderlineHover asChild>
+                <Link to="/docs/api" className="hover:text-primary transition-colors">API</Link>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <Link to="/terms" className="hover:text-primary transition-colors">{t("使用条款")}</Link>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <Link to="/privacy" className="hover:text-primary transition-colors">{t("隐私政策")}</Link>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <a
+                  href="https://github.com/19556523308ding-ship-it/one-ip8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  GitHub
+                </a>
+              </UnderlineHover>
+              <UnderlineHover asChild>
+                <a href="mailto:19556523308ding@gmail.com" className="hover:text-primary transition-colors">{t("联系我们")}</a>
+              </UnderlineHover>
+            </div>
+          </div>
         </footer>
       </div>
       <aside aria-label={t("站点通知")} className="update-notices">
